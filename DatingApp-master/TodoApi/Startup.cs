@@ -39,6 +39,7 @@ namespace TodoApi
             services.AddDbContext<DataContext>(x => x.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllers();
             services.AddCors();
+            services.Configure<CloudinarySetting>(Configuration.GetSection("CloudinarySetting"));
             services.AddAutoMapper(typeof(Startup));
             services.AddTransient<Seed>();
             services.AddScoped<IAuthRepository , AuthRepository>();
