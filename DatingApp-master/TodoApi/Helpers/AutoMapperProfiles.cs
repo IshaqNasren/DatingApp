@@ -2,6 +2,7 @@ using AutoMapper;
 using TodoApi.Model;
 using TodoApi.Dtos;
 using System.Linq;
+using TodoApi.Data;
 
 namespace TodoApi.Helpers
 {
@@ -25,6 +26,12 @@ namespace TodoApi.Helpers
             });   
 
             CreateMap<Photo, PhotosForDetailedDto>();
+
+            CreateMap<UserForUpdateDto, User>();
+
+            CreateMap<Photo , PhotoForReturnDto>();
+
+            CreateMap<PhotoForCreationDto, Photo>();
         }
     }
 }

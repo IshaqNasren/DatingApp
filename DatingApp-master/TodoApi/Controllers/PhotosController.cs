@@ -15,7 +15,7 @@ using TodoApi.Model;
 namespace TodoApi.Controllers
 {
     [Authorize]
-    [Route("[Users/{userId}/photos]")]
+    [Route("Users/{userId}/Photos")]
     [ApiController]
     public class PhotosController : ControllerBase
     {
@@ -32,12 +32,22 @@ namespace TodoApi.Controllers
             _cloudinarySettings = cloudinarySettings;
 
             Account acc = new Account(
-                _cloudinarySettings.Value.CloundName,
+                _cloudinarySettings.Value.CloudName,
                 _cloudinarySettings.Value.ApiKey,
                 _cloudinarySettings.Value.ApiSecret
             );
 
             _cloudinary = new Cloudinary(acc);
+        }
+
+        [HttpGet("{id}", Name = "GetPhoto")]
+        public async Task<IActionResult> GetPhoto(int id){
+
+            var photoFromRepo = await _repo.GetPhoto(id);
+
+            var photo = _mapper.Map<PhotoForReturnDto>(photoFromRepo);
+
+            return Ok(photo);
         }
 
         [HttpPost]
@@ -74,10 +84,14 @@ namespace TodoApi.Controllers
             if(!userFromRepo.Photos.Any(u => u.IsMain))
                     photo.IsMain = true;
 
-            userFromRepo.Photos.Add(photo);
+            userFromRepo.Photos.Add(photo);            
 
             if(await _repo.SaveAll())
-                return Ok();
+                {
+                    var photoToReturn = _mapper.Map<PhotoForReturnDto>(photo);
+                    return CreatedAtRoute("GetPhoto" , new {id = photo.Id} , photoToReturn);
+                }
+                // return Ok();
 
            return BadRequest("Could not add the photo");     
 

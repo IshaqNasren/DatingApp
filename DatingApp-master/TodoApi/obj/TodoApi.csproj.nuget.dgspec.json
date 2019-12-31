@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Ishaq\\Downloads\\DatingApp-master\\DatingApp-master\\TodoApi\\TodoApi.csproj": {}
+    "C:\\Users\\Ishaq\\Downloads\\DatingApp-master\\DatingApp-master\\TodoApi\\TodoApi.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Ishaq\\Downloads\\DatingApp-master\\DatingApp-master\\TodoApi\\TodoApi.csproj": {
+    "C:\\Users\\Ishaq\\Downloads\\DatingApp-master\\DatingApp-master\\TodoApi\\TodoApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Ishaq\\Downloads\\DatingApp-master\\DatingApp-master\\TodoApi\\TodoApi.csproj",
+        "projectUniqueName": "C:\\Users\\Ishaq\\Downloads\\DatingApp-master\\DatingApp-master\\TodoApi\\TodoApi.csproj",
         "projectName": "TodoApi",
-        "projectPath": "c:\\Users\\Ishaq\\Downloads\\DatingApp-master\\DatingApp-master\\TodoApi\\TodoApi.csproj",
+        "projectPath": "C:\\Users\\Ishaq\\Downloads\\DatingApp-master\\DatingApp-master\\TodoApi\\TodoApi.csproj",
         "packagesPath": "C:\\Users\\Ishaq\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Ishaq\\Downloads\\DatingApp-master\\DatingApp-master\\TodoApi\\obj\\",
+        "outputPath": "C:\\Users\\Ishaq\\Downloads\\DatingApp-master\\DatingApp-master\\TodoApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Ishaq\\AppData\\Roaming\\NuGet\\NuGet.Config"
