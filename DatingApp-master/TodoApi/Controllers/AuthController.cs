@@ -39,14 +39,13 @@ namespace TodoApi.Controllers
             if (await _repo.UserExists(userForRegisterDto.Username))
                 return BadRequest("Username Already exisits");
 
-            var usertoCreate = new User
-            {
-                Username = userForRegisterDto.Username
-            };
+            var usertoCreate = _mapper.Map<User>(userForRegisterDto);
 
             var createdUser = await _repo.Register(usertoCreate, userForRegisterDto.Password);
 
-            return StatusCode(201);
+            var userToReturn = _mapper.Map<UserForDeatailDto>(createdUser);
+
+            return CreatedAtRoute("GetUser", new {controller = "Users", Id = createdUser.Id}, userToReturn);
         }
         
         [HttpPost("login")]

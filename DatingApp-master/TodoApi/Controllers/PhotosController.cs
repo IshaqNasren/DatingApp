@@ -88,7 +88,7 @@ namespace TodoApi.Controllers
             if(await _repo.SaveAll())
                 {
                     var photoToReturn = _mapper.Map<PhotoForReturnDto>(photo);
-                    return CreatedAtRoute("GetPhoto" , new {id = photo.Id} , photoToReturn);
+                    return CreatedAtRoute("GetPhoto" , new {Id = photo.Id}, photoToReturn);
                 }
                
            return BadRequest("Could not add the photo");     
@@ -149,7 +149,10 @@ namespace TodoApi.Controllers
 
             if(result.Result == "ok")            
                 _repo.Delete(photoFromRepo);
-            }    
+            }  
+
+            if(photoFromRepo.PublicId != null)
+                _repo.Delete(photoFromRepo);  
 
             if(await _repo.SaveAll())
                 return Ok();
