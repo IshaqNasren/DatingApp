@@ -37,7 +37,7 @@ namespace TodoApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<DataContext>(x => x.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson();
             services.AddCors();
             services.Configure<CloudinarySetting>(Configuration.GetSection("CloudinarySetting"));
             services.AddAutoMapper(typeof(Startup));
